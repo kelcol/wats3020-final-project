@@ -134,9 +134,7 @@ function copyHoldingDetails() {
     // Add modal footer div 
     var modalFooter = document.createElement('DIV');    
     modalFooter.setAttribute("class", "modal-footer");
-    modalFooter.appendChild(altFooterText);    // change to "footerText" if you just want to use the static value assigned below"
-
-
+    modalFooter.appendChild(altFooterText);   
 
     // Append modalHeader, modalBody, and modalFooter to modalContent
     modalContent.appendChild(modalHeader);    
