@@ -1,146 +1,202 @@
-// Get modal element
-var modal = document.getElementById('simpleModal');
-var modalBtn = document.getElementById('modalBtn');
-var closeBtn = document.getElementsByClassName('closeBtn')[0];
+function copyHoldingDetails() {
 
-// Listen for click
-modalBtn.addEventListener('click', openModal);
+    // Assign variables  
+    var prov = document.getElementById("prov").textContent;
+    var provCode = document.getElementById("prov-code").textContent;
+    var title = document.getElementById('title').textContent;
+    var ssid = document.getElementById('ssid').textContent;
+    var idType = document.getElementById('id-type').textContent;
+    var id =  document.getElementById('id').textContent;
+    var startDate = document.getElementById('start-date').textContent;
+    var endDate = document.getElementById('end-date').textContent;
+    var dbName = document.getElementById('db-name').textContent;
+    var dbCode = document.getElementById('db-code').textContent;
+    var url = document.getElementById('url').textContent;
+    var status = document.getElementById('status').textContent;
 
-// Listen for close click
-closeBtn.addEventListener('click', closeModal);
+    // Assign places in the DOM for modalBtn to stick    
+    var modalBtnDiv = document.getElementById("attach-modalBtn-here");
 
-// Listen for outside click
-window.addEventListener('click',outsideClick)
+    // Create and append modal button to DOM
+    var modalBtn = document.createElement('button');
+    modalBtn.setAttribute("class", "button");
+    modalBtn.innerHTML = "Copy Holding Details";
+    modalBtnDiv.appendChild(modalBtn);
 
+    // Create modal and append to DOM
+    var modal = document.createElement('DIV');
+    modal.setAttribute("id", "simpleModal");
+    modal.setAttribute("class", "modal");    
+    document.body.appendChild(modal);
 
-// Function to open modal
-function openModal() {
-    console.log(123);
-    modal.style.display = 'block';
-}
+    // Create modalContent div and append to modal
+    var modalContent = document.createElement('DIV');
+    modalContent.setAttribute("class", "modal-content");
+    modal.appendChild(modalContent);
 
-// Function to close modal
-function closeModal() {
-    console.log(456);
-    modal.style.display = 'none';
-}
+    // Create modalHeader div and closeBtn and append closeBtn to modalHeader
+    var modalHeader = document.createElement('DIV');
+    modalHeader.setAttribute("class", "modal-header");
+    // Add h2 tag here and append to modalHeader
+    var closeBtn = document.createElement('span');
+    closeBtn.setAttribute("class", "closeBtn");
+    closeBtn.innerHTML = "&times;";
+    modalHeader.appendChild(closeBtn);
 
-// Function to close modal if outside click
-function outsideClick(e) {
-    if(e.target == modal){
-        modal.style.display = 'none'
+    // Create modalBody div
+    var modalBody = document.createElement('DIV');
+    modalBody.setAttribute("class", "modal-body");
+
+    // Create divs
+    var titleDiv = document.createElement('DIV');
+    titleDiv.setAttribute("id","title-div");
+    var titleTextArea = document.createElement("TEXTAREA");
+    titleTextArea.setAttribute("class", "title-deets");
+    
+    var dbDiv = document.createElement('DIV');
+    dbDiv.setAttribute("id","db-div");
+    var dbTextArea = document.createElement("TEXTAREA");
+    dbTextArea.setAttribute("class", "db-deets");
+    
+    var fullDiv = document.createElement('DIV');
+    fullDiv.setAttribute("id","full-div");
+    var fullTextArea = document.createElement("TEXTAREA");
+    fullTextArea.setAttribute("class", "full-deets");
+
+    var titleTextNode = document.createTextNode(`"${title}" (${idType}: ${id})`);
+    var dbTextNode = document.createTextNode(`${dbName} (DBID: ${dbCode})`);
+    var fullTextNode = document.createTextNode(`Provider: ${prov}\nProvider Code: ${provCode}\nDatabase Name: ${dbName}\nDatabase Code: ${dbCode}\nTitle: ${title}\n${idType}: ${id}\nCoverage: ${startDate} - ${endDate}\nURL: ${url}\nStatus: ${status}`);
+
+    copyTitleBtn = document.createElement('button');
+    copyTitleBtn.setAttribute("id","copy-title-btn");
+    copyTitleBtn.setAttribute("class","button copy-button");
+    copyTitleBtn.innerHTML = "Copy";    
+
+    copyDbBtn = document.createElement('button');
+    copyDbBtn.setAttribute("id","copy-db-btn");
+    copyDbBtn.setAttribute("class","button copy-button");
+    copyDbBtn.innerHTML = "Copy";
+
+    copyFullBtn = document.createElement('button');
+    copyFullBtn.setAttribute("id","copy-full-btn");
+    copyFullBtn.setAttribute("class","button copy-button");
+    copyFullBtn.innerHTML = "Copy";
+
+    titleDiv.appendChild(titleTextArea);
+    titleDiv.appendChild(copyTitleBtn);
+
+    dbDiv.appendChild(dbTextArea);
+    dbDiv.appendChild(copyDbBtn);
+
+    fullDiv.appendChild(fullTextArea);
+    fullDiv.appendChild(copyFullBtn);
+
+    titleTextArea.appendChild(titleTextNode);
+    dbTextArea.appendChild(dbTextNode);
+    fullTextArea.appendChild(fullTextNode);
+
+    modalBody.appendChild(titleDiv);
+    modalBody.appendChild(dbDiv);
+    modalBody.appendChild(fullDiv);    
+
+    // Add footer and append to modalContent
+    var modalFooter = document.createElement('div');    
+    modalFooter.setAttribute("class", "modal-footer");
+
+    // Append modalHeader and modalBody to modalContent
+    modalContent.appendChild(modalHeader);    
+    modalContent.appendChild(modalBody);
+    modalContent.appendChild(modalFooter);
+
+    // Listen for click
+    modalBtn.addEventListener('click', openModal);
+
+    // Listen for close click
+    closeBtn.addEventListener('click', closeModal);
+
+    // Listen for outside click
+    window.addEventListener('click', outsideClick);
+
+    // Function to open modal
+    function openModal() {
+        console.log(123);
+        modal.style.display = 'block';
     }
+
+    // Function to close modal
+    function closeModal() {
+        console.log(456);
+        modal.style.display = 'none';
+    }
+
+    // Function to close modal if outside click
+    function outsideClick(e) {
+        if (e.target == modal) {
+            modal.style.display = 'none'
+        }
+    }
+
+    // Add event listener for copy button 1
+    copyTitleBtn.addEventListener('click', function (e) {
+        var copyTitleDeets = document.querySelector('.title-deets');
+        copyTitleDeets.select();
+        try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copying text command was ' + msg);
+        } catch (err) {
+            console.log('Oops, unable to copy');
+        }
+    });
+
+    copyDbBtn.addEventListener('click', function (e) {
+        var copyDbDeets = document.querySelector('.db-deets');
+        copyDbDeets.select();
+        try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copying text command was ' + msg);
+        } catch (err) {
+            console.log('Oops, unable to copy');
+        }
+    });
+
+    copyFullBtn.addEventListener('click', function (e) {
+        var copyFullDeets = document.querySelector('.full-deets');
+        copyFullDeets.select();
+        try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copying text command was ' + msg);
+        } catch (err) {
+            console.log('Oops, unable to copy');
+        }
+    });
+
+};
+
+copyHoldingDetails();
+
+
+/* <script>
+function GetValue()
+{
+    var myarray= new Array("item1","item2","item3");
+    var random = myarray[Math.floor(Math.random() * myarray.length)];
+    //alert(random);
+    document.getElementById("message").innerHTML=random;
 }
 
-// DONT FUCK WITH ABOVE
-
-// Assign variables
-var title = document.getElementById('title').textContent;
-var database = document.getElementById('db').textContent;
+function copyToClipboard(elementId) {
 
 
-// Generate text area 1
-var node1 = document.createElement("TEXTAREA");  
-node1.setAttribute("class","copyMe1")               
-var textnode1 = document.createTextNode(`
-Title: ${title}
-Database: ${database}
-`);
-node1.appendChild(textnode1);
+  var aux = document.createElement("input");
+  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
 
-// Add copy button
-var cpyBtn1 = document.createElement("button");
-cpyBtn1.innerHTML = "Copy";
+  document.body.removeChild(aux);
 
-// Add text area and button to modal
-document.getElementsByClassName('modal-body')[0].appendChild(node1);
-document.getElementsByClassName('modal-body')[0].appendChild(cpyBtn1);
-
-// Add event listener for copy button 1
-
-cpyBtn1.addEventListener('click', function(e){
-    var copyTextArea1 = document.querySelector('.copyMe1');
-    copyTextArea1.select();
-
-    try {
-        var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Copying text command was ' + msg);
-      } catch (err) {
-        console.log('Oops, unable to copy');
-      }
-});
-
-// Generate text area 2
-
-var node2 = document.createElement("TEXTAREA");  
-node2.setAttribute("class","copyMe2")               
-var textnode2 = document.createTextNode(`
-Title: ${title}
-Database: ${database}
-`);
-node2.appendChild(textnode2);
-
-// Add copy button
-var cpyBtn2 = document.createElement("button");
-cpyBtn2.innerHTML = "Copy";
-
-// Add text area and button to modal
-document.getElementsByClassName('modal-body')[0].appendChild(node2);
-document.getElementsByClassName('modal-body')[0].appendChild(cpyBtn2);
-
-cpyBtn2.addEventListener('click', function(e){
-    var copyTextArea2 = document.querySelector('.copyMe2');
-    copyTextArea2.select();
-
-    try {
-        var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Copying text command was ' + msg);
-      } catch (err) {
-        console.log('Oops, unable to copy');
-      }
-});
-
-
-// THE BELOW IS LIKELY JUNK BUT MABES NOT
-
-//https://stackoverflow.com/questions/31570359/add-copy-button-in-javascript
-// var textarea = document.createElement('textarea');
-// textarea.className = 'test';
-// document.body.appendChild(test);
-
-// function textToModal(htmlStr){
-//     var frag = document.createDocumentFragment(),
-//         temp = document.createElement('div');
-//         temp.innerHTML = htmlStr;
-//         while (temp.firstChild) {
-//             frag.appendChild(temp.firstChild);
-//         }
-//         return frag;
-// }
-
-
-// var title = document.getElementById('title').textContent;
-// var fragment = createModal(`<div>Hello!</div><p>${title}</p>`);
-// // You can use native DOM methods to insert the fragment:
-// document.body.insertBefore(fragment, document.body.childNodes[0]);
-
-// create a line item element variable called node
-// create a text node with a value of water called textnode
-// append textnode (<li>"Water"</li>) to node
-// now, append the node (which now has textnode appended to it to the div "test" in the document)
-
-
-
-// var node = document.createElement("LI");                 
-// var textnode = document.createTextNode("Water");
-// node.appendChild(textnode);
-// document.getElementById("test").appendChild(node);
-
-
-// Now, to do this with a textarea
-
-// This works!
-
-
+}
+</script> */
