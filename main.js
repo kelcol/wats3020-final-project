@@ -1,8 +1,6 @@
 // Get modal element
 var modal = document.getElementById('simpleModal');
-
 var modalBtn = document.getElementById('modalBtn');
-
 var closeBtn = document.getElementsByClassName('closeBtn')[0];
 
 // Listen for click
@@ -34,37 +32,66 @@ function outsideClick(e) {
     }
 }
 
-
 // DONT FUCK WITH ABOVE
-
-
 
 // Assign variables
 var title = document.getElementById('title').textContent;
 var database = document.getElementById('db').textContent;
 
 
-// Generate text area
-var node = document.createElement("TEXTAREA");  
-node.setAttribute("class","copyMe")               
-var textnode = document.createTextNode(`
+// Generate text area 1
+var node1 = document.createElement("TEXTAREA");  
+node1.setAttribute("class","copyMe1")               
+var textnode1 = document.createTextNode(`
 Title: ${title}
 Database: ${database}
 `);
-node.appendChild(textnode);
+node1.appendChild(textnode1);
 
 // Add copy button
 var cpyBtn1 = document.createElement("button");
 cpyBtn1.innerHTML = "Copy";
 
 // Add text area and button to modal
-document.getElementsByClassName('modal-body')[0].appendChild(node);
+document.getElementsByClassName('modal-body')[0].appendChild(node1);
 document.getElementsByClassName('modal-body')[0].appendChild(cpyBtn1);
 
+// Add event listener for copy button 1
 
 cpyBtn1.addEventListener('click', function(e){
-    var copyTextArea = document.querySelector('.copyMe');
-    copyTextArea.select();
+    var copyTextArea1 = document.querySelector('.copyMe1');
+    copyTextArea1.select();
+
+    try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Copying text command was ' + msg);
+      } catch (err) {
+        console.log('Oops, unable to copy');
+      }
+});
+
+// Generate text area 2
+
+var node2 = document.createElement("TEXTAREA");  
+node2.setAttribute("class","copyMe2")               
+var textnode2 = document.createTextNode(`
+Title: ${title}
+Database: ${database}
+`);
+node2.appendChild(textnode2);
+
+// Add copy button
+var cpyBtn2 = document.createElement("button");
+cpyBtn2.innerHTML = "Copy";
+
+// Add text area and button to modal
+document.getElementsByClassName('modal-body')[0].appendChild(node2);
+document.getElementsByClassName('modal-body')[0].appendChild(cpyBtn2);
+
+cpyBtn2.addEventListener('click', function(e){
+    var copyTextArea2 = document.querySelector('.copyMe2');
+    copyTextArea2.select();
 
     try {
         var successful = document.execCommand('copy');
