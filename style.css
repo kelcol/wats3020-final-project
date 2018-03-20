@@ -1,17 +1,16 @@
-
-body{
+body {
     font-family: 'Lato', sans-serif;
-    font-size:17px;
-    line-height:1.6;
+    font-size: 17px;
+    line-height: 1.6;
     margin: 2em;
-    margin: 0 auto;  
-    color:rgb(58, 80, 99);  
+    margin: 0 auto;
+    color: rgb(58, 80, 99);
 }
 
 table {
-    background-color: #f4f4f4;    
+    background-color: #f4f4f4;
     padding: 1em;
-    color:rgb(58, 80, 99);
+    color: rgb(58, 80, 99);
     border-radius: 1em;
     margin: 1.5em auto;
 }
@@ -22,7 +21,7 @@ table {
     text-align: left;
 }
 
-.cell {    
+.cell {
     text-align: center;
 }
 
@@ -30,17 +29,16 @@ caption {
     text-align: center;
     font-weight: bold;
     font-variant: small-caps;
-    color:rgb(58, 80, 99);
-    font-size: 30px; 
+    color: rgb(58, 80, 99);
+    font-size: 30px;
 }
-
 
 h1 {
     text-align: center;
     font-weight: bold;
     font-variant: small-caps;
-    color: rgb(85, 138, 187);  
-    font-size: 50px; 
+    color: rgb(85, 138, 187);
+    font-size: 50px;
 }
 
 .page-content {
@@ -51,17 +49,18 @@ h1 {
 }
 
 .intro-text {
-    margin: 4em;
+    margin: 4em 4em 2em 4em;
 }
 
 a:link {
-    color: rgb(85, 138, 187);    
-}
-a:visited {
-    color:rgb(58, 80, 99);
+    color: rgb(85, 138, 187);
 }
 
-a:hover{
+a:visited {
+    color: rgb(58, 80, 99);
+}
+
+a:hover {
     color: orange;
 }
 
@@ -69,119 +68,130 @@ a:active {
     color: pink;
 }
 
-
 .footer-text {
     font-style: italic;
     font-size: 14px;
 }
-.button{
-    background:rgb(85, 138, 187);
+
+.button {
+    background: rgb(85, 138, 187);
     margin: 1em auto;
-    padding:1em 2em;
-    color:#fff;
-    border:0;
+    padding: 1em 2em;
+    color: #fff;
+    border: 0;
     border-radius: 7px;
-    -webkit-user-select:none;
-	-moz-user-select:none;
-	-ms-user-select:none;
-	user-select:none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.button:hover, .copy-button:hover {
-    background:rgb(58, 80, 99);
+.button:hover {
+    background: rgb(58, 80, 99);
     transition-duration: 0.3s;
 }
 
 .copy-button {
-    margin: 0em 0em 0em 2em ;
+    margin: 1.5em;
     vertical-align: middle;
-    
-
+    width: 80%;
 }
 
-.modal{
+.button:visited {
+    color: rgb(58, 80, 99);
+}
+
+.modal {
     display: none;
+    margin: 0 auto;
     position: fixed;
-    z-index:1; 
-    left:0;
-    top:0;
+    z-index: 1;
+    left: 0;
+    top: 0;
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content{
+.modal-content {
     background-color: #f4f4f4;
-    margin: 20% auto;
-    width:60%;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);   
+    margin: 10% auto;
+    width: 40%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
     animation-name: modalOpen;
-    animation-duration:250ms; 
+    animation-duration: 250ms;
 }
 
-.modal-header h2, .modal-header h3{
+.modal-header h2,
+.modal-header h3 {
+    font-size: 15px;
     margin: 0;
-
+}
+.title-in-modal-hdr {
+    color: orange;
 }
 
-.modal-header{
+.modal-header {
     background: rgb(85, 138, 187);
     padding: 15px;
-    color:#fff;
-
+    color: #fff;
 }
 
-
-.modal-body{
-    padding:10px 30px;
+.modal-body {
+    padding: 10px 30px;
 }
 
-.modal-footer{
+.modal-footer {
     background: rgb(85, 138, 187);
     padding: 10px;
-    color:#fff;
+    color: #fff;
     text-align: center;
-
 }
 
 .modal-button-div {
     text-align: center;
 }
 
+div#title-div,
+div#db-div,
+div#full-div {
+    text-align: center;
 
-.closeBtn{
-    color:#ccc;
-    float: right;
+}
+
+
+.closeBtn {
+    
+    float:right;
+    color: #ccc;
     font-size: 30px;
-    color:#fff;
+    color: #fff;
 }
 
-.closeBtn:hover,.closeBtn:focus{
-    color:rgb(58, 80, 99);
+.closeBtn:hover,
+.closeBtn:focus {
+    color: rgb(58, 80, 99);
     text-decoration: none;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-@keyframes modalOpen{
-    from{opacity: 0;}
-    to {opacity: 1;}
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
+/* Hide textareas */
 textarea {
-    width: 75%;
-    padding:10px;
-    vertical-align: middle;
-    margin: 1.5em;
-  }  
-
-textarea.title-deets, textarea.db-deets {
-    height: 15px;    
+    margin: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: transparent;
+    overflow: auto;
+    height: 0px;
+    width: 0px;
 }
-
-textarea.full-deets {
-    height: 150px;
-
-}
-
-

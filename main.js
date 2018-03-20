@@ -85,17 +85,17 @@ function copyHoldingDetails() {
     copyTitleBtn = document.createElement("button");
     copyTitleBtn.setAttribute("id", "copy-title-btn");
     copyTitleBtn.setAttribute("class", "button copy-button");
-    copyTitleBtn.innerHTML = "Copy";
+    copyTitleBtn.innerHTML = "Title Details";
 
     copyDbBtn = document.createElement("button");
     copyDbBtn.setAttribute("id", "copy-db-btn");
     copyDbBtn.setAttribute("class", "button copy-button");
-    copyDbBtn.innerHTML = "Copy";
+    copyDbBtn.innerHTML = "Database Details";
 
     copyFullBtn = document.createElement("button");
     copyFullBtn.setAttribute("id", "copy-full-btn");
     copyFullBtn.setAttribute("class", "button copy-button");
-    copyFullBtn.innerHTML = "Copy";
+    copyFullBtn.innerHTML = "Full Holding Details";
 
     // Append divs and copy buttons to repsective divs
     titleDiv.appendChild(titleTextArea);
@@ -118,24 +118,19 @@ function copyHoldingDetails() {
         let fileContentLines = fileContent.split("\n");
         let randomLineIndex = Math.floor(Math.random() * fileContentLines.length);
         let randomLine = fileContentLines[randomLineIndex];
-        altFooterText.innerHTML = `${randomLine}`;
+        modalFooterText.innerHTML = `${randomLine}`;
     }
     request.open("GET", "oblique-strategies.txt", true);
     request.send();
 
-    // Create footer div text and append to modal footer div
-    let footerText = document.createElement("H2");
-    footerText.setAttribute("class", "footer-text");
-    footerText.innerHTML = "Be your own best enemy.";
-
     // Alternate footer text
-    let altFooterText = document.createElement("DIV");
-    altFooterText.setAttribute("class", "footer-text");
+    let modalFooterText = document.createElement("DIV");
+    modalFooterText.setAttribute("class", "footer-text");
 
     // Add modal footer div 
     let modalFooter = document.createElement("DIV");
     modalFooter.setAttribute("class", "modal-footer");
-    modalFooter.appendChild(altFooterText);
+    modalFooter.appendChild(modalFooterText);
 
     // Append modalHeader, modalBody, and modalFooter to modalContent
     modalContent.appendChild(modalHeader);
