@@ -1,4 +1,4 @@
-function copyHoldingDetails() {
+(function copyHoldingDetails() {
 
     // Assign variables
     let prov = document.getElementById("prov").textContent;
@@ -74,7 +74,7 @@ function copyHoldingDetails() {
     // Create text nodes to print inside text areas
     let titleTextNode = document.createTextNode(`"${title}" (${idType}: ${id})`);
     let dbTextNode = document.createTextNode(`${dbName} (DBID: ${dbCode})`);
-    let fullTextNode = document.createTextNode(`Provider: ${prov}\nProvider Code: ${provCode}\nDatabase Name: ${dbName}\nDatabase Code: ${dbCode}\nTitle: ${title}\n${idType}: ${id}\nCoverage: ${startDate} - ${endDate}\nURL: ${url}\nStatus: ${status}`);
+    let fullTextNode = document.createTextNode(`Provider: ${prov}\nProvider Code: ${provCode}\nDatabase Name: ${dbName}\nDatabase Code: ${dbCode}\nSSID:${ssid}\nTitle: ${title}\n${idType}: ${id}\nCoverage: ${startDate} - ${endDate}\nURL: ${url}\nStatus: ${status}`);
 
     // Append text nodes to text areas
     titleTextArea.appendChild(titleTextNode);
@@ -202,30 +202,8 @@ function copyHoldingDetails() {
             let msg = successful ? "successful" : "unsuccessful";
             console.log("Copying text command was " + msg);
         } catch (err) {
-            console.log("Oops, unable to copy");
+            console.log("Oopsie, unable to copy");
         }
     });
 
-};
-
-// Add date to page
-function getTheDateAndTime() {
-    let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1; //January is 0!
-    let yyyy = today.getFullYear();
-
-    if (dd < 10) {
-        dd = "0" + dd
-    }
-
-    if (mm < 10) {
-        mm = "0" + mm
-    }
-
-    today = `Today's date is ${mm}/${dd}/${yyyy}.`;
-    document.write(today);
-}
-
-copyHoldingDetails();
-getTheDateAndTime();
+})();
