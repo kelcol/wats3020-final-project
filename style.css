@@ -7,6 +7,7 @@ body {
     color: rgb(58, 80, 99);
 }
 
+
 table {
     background-color: #f4f4f4;
     padding: 1em;
@@ -16,7 +17,7 @@ table {
 }
 
 .label {
-    font-weight: bold;
+    font-weight: 900;
     font-variant: small-caps;
     text-align: left;
 }
@@ -25,7 +26,18 @@ table {
     text-align: center;
 }
 
-caption {
+.label {
+    font-weight: bold;
+    font-variant: small-caps;
+    text-align: left;
+}
+
+.holding-details-hdr {
+    text-align: center;
+    color: rgb(85, 138, 187);  
+}
+
+h3, h4 {
     text-align: center;
     font-weight: bold;
     font-variant: small-caps;
@@ -44,8 +56,8 @@ h1 {
 .page-content {
     width: 100%;
     height: 100%;
-    margin: 0 auto;
-    align-content: center;
+    margin: 6em  0 0 0;
+    /* align-content: center; */
 }
 
 .intro-text {
@@ -68,13 +80,47 @@ a:active {
     color: pink;
 }
 
-.footer-text {
-    font-style: italic;
-    font-size: 14px;
+.header {
+    background:rgb(85, 138, 187); 
+    color:#fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    overflow:hidden;
 }
 
-.button {
-    background: rgb(85, 138, 187);
+
+.footer {
+    background:rgb(85, 138, 187); 
+    color:#fff;
+    position: fixed;    
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.footer-text {
+    font-style: italic;
+    font-size: 16px;
+}
+
+#modal-btn-div {
+    text-align: center;
+}
+
+#modal-btn {
+    font-size: 16px;
+    font-weight: 900;    
+}
+.button{
+    font-size: 12px;
+    background:rgb(85, 138, 187);
     margin: 1em auto;
     padding: 1em 2em;
     color: #fff;
@@ -94,11 +140,6 @@ a:active {
 .copy-button {
     margin: 1.5em;
     vertical-align: middle;
-    width: 80%;
-}
-
-.button:visited {
-    color: rgb(58, 80, 99);
 }
 
 .modal {
@@ -117,8 +158,8 @@ a:active {
 .modal-content {
     background-color: #f4f4f4;
     margin: 10% auto;
-    width: 60%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    width:40%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);   
     animation-name: modalOpen;
     animation-duration: 250ms;
 }
