@@ -15,12 +15,13 @@ function copyHoldingDetails() {
     var status = document.getElementById('status').textContent;
 
     // Assign places in the DOM for modalBtn to stick    
-    var modalBtnDiv = document.getElementById("attach-modalBtn-here");
+    var modalBtnDiv = document.getElementById("modal-btn-div");
 
     // Create and append modal button to DOM
     var modalBtn = document.createElement('button');
     modalBtn.setAttribute("class", "button");
-    modalBtn.innerHTML = "Copy Holding Details";
+    modalBtn.setAttribute("id","modal-btn");
+    modalBtn.innerHTML = "Click Me!";
     modalBtnDiv.appendChild(modalBtn);
 
     // Create modal and append to DOM
@@ -73,7 +74,7 @@ function copyHoldingDetails() {
     // Create text nodes to print inside text areas
     var titleTextNode = document.createTextNode(`"${title}" (${idType}: ${id})`);
     var dbTextNode = document.createTextNode(`${dbName} (DBID: ${dbCode})`);
-    var fullTextNode = document.createTextNode(`Provider: ${prov}\nProvider Code: ${provCode}\nDatabase Name: ${dbName}\nDatabase Code: ${dbCode}\nTitle: ${title}\n${idType}: ${id}\nCoverage: ${startDate} - ${endDate}\nURL: ${url}\nStatus: ${status}`);
+    var fullTextNode = document.createTextNode(`Provider: ${prov}\nProvider Code: ${provCode}\nDatabase Name: ${dbName}\nDatabase Code: ${dbCode}\nSSID: ${ssid}\nTitle: ${title}\n${idType}: ${id}\nCoverage: ${startDate} - ${endDate}\nURL: ${url}\nStatus: ${status}`);
 
     // Append text nodes to text areas
     titleTextArea.appendChild(titleTextNode);
