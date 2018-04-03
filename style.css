@@ -5,18 +5,32 @@ body{
     margin: 2em;
 }
 
+
 table {
     background-color: #f4f4f4;
-    text-align: left;
     padding: 1em;
-    color: rgba(0, 0, 0, 0.884);
+    color: rgb(58, 80, 99);
     border-radius: 1em;
-    margin: 1em auto;
+    margin: 1.5em auto;
+}
+
+.label {
+    font-weight: 900;
+    font-variant: small-caps;
+    text-align: left;
+}
+
+.cell {
+    text-align: center;
 }
 
 
+.holding-details-hdr {
+    text-align: center;
+    color: rgb(85, 138, 187);  
+}
 
-h4 {
+h3, h4 {
     text-align: center;
     color: rgb(85, 138, 187);  
 }
@@ -25,8 +39,8 @@ h4 {
     position: fixed;
     width: 100%;
     height: 100%;
-    margin: 6em 0 0 0;
-    align-content: center;
+    margin: 6em  0 0 0;
+    /* align-content: center; */
 }
 
 a:link {
@@ -44,7 +58,6 @@ a:active {
     color: pink;
 }
 
-
 .header {
     background:rgb(85, 138, 187); 
     color:#fff;
@@ -61,20 +74,30 @@ a:active {
 .footer {
     background:rgb(85, 138, 187); 
     color:#fff;
-    position: fixed;
+    position: fixed;    
     left: 0;
     bottom: 0;
     height: 60px;
     width: 100%;
     text-align: center;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .footer-text {
     font-style: italic;
-    font-size: 12px;
+    font-size: 16px;
+}
+
+#modal-btn-div {
+    text-align: center;
+}
+
+#modal-btn {
+    font-size: 16px;
+    font-weight: 900;    
 }
 .button{
+    font-size: 12px;
     background:rgb(85, 138, 187);
     margin: 1em auto;
     padding:1em 2em;
@@ -95,8 +118,6 @@ a:active {
 .copy-button {
     margin: 0em 0em 0em 2em ;
     vertical-align: middle;
-    
-
 }
 
 .modal{
@@ -113,8 +134,8 @@ a:active {
 
 .modal-content{
     background-color: #f4f4f4;
-    margin: 20% auto;
-    width:60%;
+    margin: 10% auto;
+    width:40%;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);   
     animation-name: modalOpen;
     animation-duration:250ms; 
